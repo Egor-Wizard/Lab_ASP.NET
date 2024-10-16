@@ -1,0 +1,21 @@
+﻿@page
+@model PizzaOrderApp.Pages.ConfirmationModel
+@{
+    ViewData["Title"] = "Підтвердження замовлення";
+}
+
+<h2>Підтвердження замовлення</h2>
+
+@if (Model.Products != null && Model.Products.Count > 0)
+{
+    <ul>
+        @foreach (var product in Model.Products)
+        {
+            <li>@product.Name</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Ваше замовлення порожнє.</p>
+}

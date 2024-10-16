@@ -1,0 +1,28 @@
+﻿@page
+@model PizzaOrderApp.Pages.OrderModel
+@{
+    ViewData["Title"] = "Замовлення";
+}
+
+<h2>Замовлення</h2>
+
+<form method="post">
+    <div>
+        <label>Скільки одиниць товару ви бажаєте замовити?</label>
+        <input asp-for="Quantity" type="number" min="1" />
+        <span asp-validation-for="Quantity"></span>
+    </div>
+
+    <button type="submit">Підтвердити замовлення</button>
+</form>
+
+@if (Model.Products != null && Model.Products.Count > 0)
+{
+    <h3>Список продуктів:</h3>
+    <ul>
+        @foreach (var product in Model.Products)
+        {
+            <li>@product.Name - @product.Price грн</li>
+        }
+    </ul>
+}

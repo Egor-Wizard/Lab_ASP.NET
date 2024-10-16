@@ -1,0 +1,27 @@
+﻿@page
+@model PizzaOrderApp.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Реєстрація";
+}
+
+<h2>Реєстрація</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="User.Name"></label>
+        <input asp-for="User.Name" />
+        <span asp-validation-for="User.Name"></span>
+    </div>
+    <div>
+        <label asp-for="User.Age"></label>
+        <input asp-for="User.Age" type="number" />
+        <span asp-validation-for="User.Age"></span>
+    </div>
+    <button type="submit">Підтвердити</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
